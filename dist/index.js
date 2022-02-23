@@ -1,5 +1,8 @@
-import express from 'express';
-import cors from 'cors';
+// import express from 'express';
+// import cors from 'cors';
+const express = require('express');
+const cors = require('cors');
+
 // import User from './classes/User';
 // import Transaction from './classes/Transaction';
 
