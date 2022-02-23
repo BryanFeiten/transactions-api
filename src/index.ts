@@ -5,7 +5,7 @@ import Transaction from './classes/Transaction';
 
 export const users: User[] = [];
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
