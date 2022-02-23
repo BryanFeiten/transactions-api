@@ -12,15 +12,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 app.use(cors());
 
-app.route('/')
-    .get((request, response) => {
+app.get('/', (request, response) => {
         return response.json({
             mensagem: "Ok"
         })
     })
 
-app.route('/users')
-    .post((request, response) => {
+app.post('/users', (request, response) => {
         const { name, age, cpf, email } = request.body;
         if (typeof name === 'string' && name.length > 2) {
             const checkName = name.split('').find(letter => !isNaN(parseInt(letter)));
@@ -64,8 +62,7 @@ app.route('/users')
     })
 
 
-app.route('/users/:id')
-    .get((request, response) => {
+app.get('/users/:id', (request, response) => {
         const { id } = request.params;
         const user = users.find(user => user.id === id);
         if (user) {
@@ -82,8 +79,7 @@ app.route('/users/:id')
         })
     })
 
-app.route('/users')
-    .get((request, response) => {
+app.get('/users', (request, response) => {
         const usersForRead = [];
         users.map(user => {
             usersForRead.push({
@@ -97,8 +93,7 @@ app.route('/users')
         return response.json(usersForRead)
     })
 
-app.route('/users/:id')
-    .put((request, response) => {
+app.put('/users/:id', (request, response) => {
         const { id } = request.params;
         const { name, email } = request.body;
         const userIndex = users.findIndex(user => user.id === id);
@@ -157,8 +152,7 @@ app.route('/users/:id')
         })
     })
 
-app.route('/users/:id')
-    .delete((request, response) => {
+app.delete('/users/:id', (request, response) => {
         const { id } = request.params;
         const userIndex = users.findIndex(user => user.id === id);
         if (userIndex === -1) {
@@ -172,8 +166,7 @@ app.route('/users/:id')
         })
     })
 
-app.route('/user/:userId/transactions')
-    .post((request, response) => {
+app.post('/user/:userId/transactions', (request, response) => {
         const { userId } = request.params;
         const { title, value, type } = request.body;
         const userIndex = users.findIndex(user => user.id === userId);
@@ -197,8 +190,7 @@ app.route('/user/:userId/transactions')
         })
     })
 
-app.route('/user/:userId/transactions/:id')
-    .get((request, response) => {
+app.get('/user/:userId/transactions/:id', (request, response) => {
         const { userId, id } = request.params;
         const userIndex = users.findIndex(user => user.id === userId);
         if (userIndex !== -1) {
@@ -216,8 +208,7 @@ app.route('/user/:userId/transactions/:id')
         });
     })
 
-app.route('/users/:userId/transactions')
-    .get((request, response) => {
+app.get('/users/:userId/transactions', (request, response) => {
         const { userId } = request.params;
         const transactions = users.find(user => user.id === userId)?.getTransactions;
         if (transactions) {
@@ -229,8 +220,7 @@ app.route('/users/:userId/transactions')
     })
 
 
-app.route('/users/:userId/transactions/:id')
-    .delete((request, response) => {
+app.delete('/users/:userId/transactions/:id', (request, response) => {
         const { userId, id } = request.params;
         const userIndex = users.findIndex(user => user.id === userId);
         if (userIndex !== -1) {
@@ -250,8 +240,7 @@ app.route('/users/:userId/transactions/:id')
         });
     })
     
-app.route('/users/:userId/transactions/:id')
-    .put((request, response) => {
+app.put('/users/:userId/transactions/:id', (request, response) => {
         const { userId, id } = request.params;
         const { title, value, type } = request.body;
         const userIndex = users.findIndex(user => user.id === userId);
