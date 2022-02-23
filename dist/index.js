@@ -213,9 +213,8 @@ app.route('/user/:userId/transactions/:id')
 });
 app.route('/users/:userId/transactions')
     .get((request, response) => {
-    var _a;
     const { userId } = request.params;
-    const transactions = (_a = exports.users.find(user => user.id === userId)) === null || _a === void 0 ? void 0 : _a.getTransactions;
+    const transactions = exports.users.find(user => user.id === userId)?.getTransactions;
     if (transactions) {
         return response.status(200).json(transactions);
     }
