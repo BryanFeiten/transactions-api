@@ -6,7 +6,7 @@ const cors = require('cors');
 // import User from './classes/User';
 // import Transaction from './classes/Transaction';
 
-export const users = [];
+// export const users = [];
 
 const PORT = process.env.PORT || 5000;
 const app = express();
