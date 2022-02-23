@@ -4,8 +4,8 @@ function generateRandomNumber(userId) {
 }
 
 module.exports = class Transaction {
-    id = generateRandomNumber(this.userId);
     constructor(userId, title, value, type) {
+        this.id = generateRandomNumber(this.userId);
         this.userId = userId;
         this.title = title;
         this.value = value;
