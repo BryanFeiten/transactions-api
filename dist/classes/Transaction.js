@@ -3,7 +3,7 @@ function generateRandomNumber(userId) {
     return randomNumber;
 }
 
-export default class Transaction {
+module.exports = class Transaction {
     id = generateRandomNumber(this.userId);
     constructor(userId, title, value, type) {}
 }
