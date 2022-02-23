@@ -5,7 +5,6 @@ const User = require('./classes/User');
 const Transaction = require('./classes/Transaction');
 
 const users = [];
-module.export = users;
 
 const PORT = process.env.PORT || 5000;
 const app = express();

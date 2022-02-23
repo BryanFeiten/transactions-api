@@ -7,5 +7,10 @@ module.exports = class User {
     setTransaction(newTransaction) {
         this.transactions.push(newTransaction);
     }
-    constructor(name, age, cpf, email) {}
+    constructor(name, age, cpf, email) {
+        this.name = name;
+        this.age = age;
+        this.cpf = cpf;
+        this.email = email
+    }
 }
