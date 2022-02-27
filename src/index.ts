@@ -14,8 +14,12 @@ app.use(cors());
 
 app.route('/')
     .get((request: Request, response: Response) => {
+        const variavel = process.env.TESTE;
+        const variavel2 = process.env.teste;
         return response.json({
-            mensagem: "Ok"
+            mensagem: "Ok",
+            variavel,
+            variavel2
         })
     })
 

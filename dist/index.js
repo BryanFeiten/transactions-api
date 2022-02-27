@@ -16,8 +16,12 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cors_1.default)());
 app.route('/')
     .get((request, response) => {
+    const variavel = process.env.TESTE;
+    const variavel2 = process.env.teste;
     return response.json({
-        mensagem: "Ok"
+        mensagem: "Ok",
+        variavel,
+        variavel2
     });
 });
 app.route('/users')
